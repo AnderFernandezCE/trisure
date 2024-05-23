@@ -1,12 +1,12 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express, Request, Response, json } from "express";
 import dotenv from "dotenv";
-import accountsRouter from "./routes/accounts.router";
-import sharedAccountsRouter from "./routes/sharedaccounts.router";
+import router from "./routes/index.router";
 
 dotenv.config();
 
 const app: Express = express();
-const port = process.env.PORT || 3000;
+app.use(json())
+const PORT = process.env.PORT || 3000;
 
 app.get("/", (req: Request, res: Response) => {
   console.log(req.query)
@@ -14,9 +14,8 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use(express.json());
-app.use('/accounts', accountsRouter);
-app.use('/sharedaccounts', sharedAccountsRouter);
+app.use(router)
 
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`[server]: Server is running at http://localhost:${PORT}`);
 });

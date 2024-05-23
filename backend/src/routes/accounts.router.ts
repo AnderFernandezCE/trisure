@@ -1,24 +1,10 @@
-import express, { Router, Request, Response } from "express";
-const accountsRouter : Router = express.Router();
-// const programmingLanguagesController = require('../controllers/programmingLanguages.controller');
+import express, { Router } from "express";
+import { getAccounts, getAccountByID } from "../controllers/accounts.controller";
 
-let accounts = [
-  { id: 1, name: 'Account 1', balance: 5000 },
-  { id: 2, name: 'Account 2', balance: 10000 },
-];
-/* GET programming languages. */
-// router.get('/', programmingLanguagesController.get);
-accountsRouter.get('/', (req: Request, res: Response) =>{
-  res.json(accounts)
-})
-  
-// /* POST programming language */
-// router.post('/', programmingLanguagesController.create);
+const accountsRouter: Router = express.Router();
 
-// /* PUT programming language */
-// router.put('/:id', programmingLanguagesController.update);
+accountsRouter.get('/', getAccounts)
+accountsRouter.get('/:id', getAccountByID)
 
-// /* DELETE programming language */
-// router.delete('/:id', programmingLanguagesController.remove);
 
 export default accountsRouter;
