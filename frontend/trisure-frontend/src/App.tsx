@@ -1,13 +1,12 @@
-import { Button } from "./shadcnComponents/ui/button"
+import { Home } from "./layout/Home"
 import { ThemeProvider } from "./shadcnComponents/theme-provider"
-import { ModeToggle } from "./shadcnComponents/ModeToggle"
 
 function App() {
 
   return (
     <>
     <ThemeProvider defaultTheme="system" storageKey="trisure-ui-theme">
-      {children}
+      <Home></Home>
     </ThemeProvider>
     </>
   )
