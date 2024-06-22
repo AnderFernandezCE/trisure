@@ -1,16 +1,14 @@
-import FilterPicker from "./components/FilterPicker"
 import { Header } from "./components/common/Header"
 import { ViewFilters } from "./components/entity-filters/ViewFilters"
-import { ViewSummary } from "./components/summary/ViewSummary"
+import { ViewTransactions } from "./components/transactions/ViewTransactions"
 
-export const Home = () => {
+export const Transactions = () => {
   return (
     <>
       <div>
         <Header />
         <ViewFilters/>
-        <ViewSummary/>
-      {/* <FilterPicker className=""/>   */}
+        <ViewTransactions />
       </div>
     </>
   )
